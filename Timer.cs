@@ -5,23 +5,24 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    private int sec = 0, min = 2;
+    private int sec = 15, min = 0;
 
-    public Text timer;
+    public Text timer; //Текст таймера
     void Start()
     {
-        StartCoroutine(TimerSec());
+        StartCoroutine(TimerSec()); //Стар корутины таймера
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        timer.text = "" + min + ":" + sec;
+        timer.text = "" + min + ":" + sec; // Вывод таймера
        
     }
 
-    IEnumerator TimerSec()
+    IEnumerator TimerSec() //таймер
     {
+        // Уменьшение каждую секунду
         while(true)
         {
             if (sec == 0)
@@ -33,10 +34,11 @@ public class Timer : MonoBehaviour
             {
                 sec--;
             }
-
+            
+            // Победа при окончании времени во 2 уровне
             if (sec <= 0 && min <= 0)
             {
-
+                GameObject.Find("WinScript").GetComponent<Level2>().WinLevel();
             }
             
             yield return new WaitForSeconds(1f);

@@ -20,15 +20,16 @@ public class Meneger : MonoBehaviour
     {
         Application.Quit();
     }
-    public void OpenPanel(GameObject panel)
+    public void OpenPanel(GameObject panel) // Открытие определенного окна
     {
         panel.SetActive(true);
     }
-    public void ClosePanel(GameObject panel)
+    public void ClosePanel(GameObject panel) // Закрытие определенного окна
     {
         panel.SetActive(false);
     }
 
+    // Это так на будущее, сохранение прогресса. Пока не разрабатывается.
     public string userPassword;
     [Header("Мой пароль")]
     [TextArea]
